@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/businessroominfo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Open+Sans&family=Roboto&display=swap"
+      rel="stylesheet">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  </head>
+<body>
+    <form class="nr-form" action="#" th:action="@{'/businessroominfo/'+${room.roomId}}"
+          th:object="${room}" method="get" novalidate>
+    <div class="hotel_info_div">
+          <div class="hotel_info_common">
+            <div class="hotel_image">
+                <img class="roomimg" th:src="${room.roomPhoto}" />
+            </div>
+            <div class="room-name">
+                <p th:text="${room.roomTitle}"></p>
+            </div>
+            <div class="room-info">
+                <table class="infotable">
+                    <tr>
+                        <p><td class="tbname" colspan = "2">객실기본정보</td></p>
+                    </tr>
+                    <tr>
+                        <td class="td1">가격</td>
+                        <td class="td2"><p th:text="${room.roomPrice}+'원'"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="td1">체크인</td>
+                        <td class="td2"><p th:text="${room.checkIn}"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="td1">체크아웃</td>
+                        <td class="td2"><p th:text="${room.checkOut}"></p></td>
+                    </tr>
+                    </table>
+            </div>
+          </div>
+            <td>
+            <button class="correct" type="button" style="cursor:pointer"><a href="#" th:href="@{'/modify-room/' + ${room.roomId}}">수정</a></button>
+            <button class="remove" type="button" style="cursor:pointer"><a href="#" th:href="@{'/delete-room/' + ${room.roomId}}">삭제</a></button>
+            </td>
+
+        </div>
+    </form>
+  </body>
+</html>

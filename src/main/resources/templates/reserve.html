@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/reservation.css">
+  <script>
+      var IMP = window.IMP;
+      IMP.init("imp81656384");
+
+      var today = new Date();
+      var hours = today.getHours(); // 시
+      var minutes = today.getMinutes();  // 분
+      var seconds = today.getSeconds();  // 초
+      var milliseconds = today.getMilliseconds();
+      var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+
+
+      function requestPay() {
+          IMP.request_pay({
+              pg : 'kakaopay',
+              pay_method : 'card',
+              merchant_uid: "IMP"+makeMerchantUid,
+              name : '드림 호텔' + ', ' + '스탠다드룸',
+              amount : 100000,
+              buyer_email : 'Iamport@chai.finance',
+              buyer_name : '아임포트 기술지원팀',
+              buyer_tel : '010-1234-5678',
+              buyer_addr : '서울특별시 강남구 삼성동',
+              buyer_postcode : '123-456',
+          }, function (rsp) { // callback
+            if (rsp.success) {
+              console.log(rsp);
+              window.location.replace("/bookinglist");
+            } else {
+                  console.log(rsp);
+              }
+          });
+      }
+      function cancelPay() {
+          alert("결제가 취소되었습니다.");
+      }
+
+      function chkReserve(){
+          const check1 = document.querySelector('#check1')
+          const check2 = document.querySelector('#check2')
+          const check3 = document.querySelector('#check3')
+          const btn = document.querySelector('#btn')
+
+          if(check1.checked == true && check2.checked == true && check3.checked == true) {
+              btn.disabled = false
+          } else {
+              btn.disabled = true
+          }
+      }
+  </script>
+  <title>reservation</title>
+</head>
+
+<body>
+  <section class="one" style="width:50%; float:left">
+    <div class="reservation">
+      <h1>예약자 정보</h1>
+    </div>
+    <form>
+      <div class="title">
+        예약자 이름
+      </div>
+      <input class="box" type="text" value="홍길동">
+      <div class="title">
+        휴대폰 번호
+      </div>
+      <input class="box" type="text" value="010-1234-5678">
+      <br>
+      <div class="mt-5" onclick="chkReserve()">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" required>
+          <label class="form-check-label" for="check1">숙소이용규칙 및 취소/환불규정 동의</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something" required>
+          <label class="form-check-label" for="check2">개인정보 수집 및 이용 동의</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check3" name="option2" value="something" required>
+          <label class="form-check-label" for="check2">개인정보 제 3자 제공 동의</label>
+        </div>
+      </div>
+    </form>
+
+  </section>
+  <section class="two" style="width:50%; float:right">
+    <div class="payment">
+      <table>
+        <thead>
+          <tr th:object="${booking}">
+            <th>숙소이름</th>
+            <td><p th:text="${booking.buTitle.buTitle}"></p></td>
+            <th>객실타입</th>
+            <td><p th:text="${booking.ro_name}"></p></td>
+            <th>체크인</th>
+            <td><p th:text="${booking.checkin}"></p></td>
+            <th>체크아웃</th>
+            <td><p th:text="${booking.checkout}"></p></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>총 결제 금액</th>
+            <td><p th:text="${booking.price}"></p></td>
+            <td><button onclick="requestPay()">결제하기</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</body>
+
+</html>

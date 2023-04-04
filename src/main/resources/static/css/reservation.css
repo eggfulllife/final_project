@@ -1,0 +1,103 @@
+
+/* reset */
+* {margin: 0; padding: 0;}
+li { list-style: none; }
+a {text-decoration: none; color: inherit;}
+
+tr {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+div.payment {
+  background-color: lightgray;
+    padding: 10px;
+}
+
+div.payment .b-payment {
+  background-color: antiquewhite;
+}
+
+/* 예약자 정보 섹션 스타일링 */
+.one {
+    width: 100%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.title {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.box {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-check {
+    margin-top: 10px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+/* 결제 정보 섹션 스타일링 */
+.two {
+    width: 100%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: bold;
+    text-align: left;
+}
+
+td {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.pay {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0069d9;
+}
+
+p {
+    font-size: 25px;
+}
+
+th {
+    font-size: 25px;
+}
+
+

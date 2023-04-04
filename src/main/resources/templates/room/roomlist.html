@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/roomlist.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Open+Sans&family=Roboto&display=swap"
+      rel="stylesheet">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  </head>
+<body>
+    <div class="menu">
+        <nav>
+            <ul>
+                <li><a href="#" th:href="@{/new-room}"><strong>객실등록</strong></a></li>
+                <li><a href="#" th:href="@{/roomlist}"><strong>객실정보</strong></a></li>
+                <li><a href="#" th:href="@{/rehistory}"><strong>예약확인</strong></a><li>
+                <li><a href="#income"><strong>매출</strong></a></li>
+                <li><a href="#checkin"><strong>체크인</strong></a></li>
+                <li><a href="#checkout"><strong>체크아웃</strong></a></li>
+                <li><a href="#" th:href="@{/reviewlist}"><strong>리뷰</strong></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="roominfo">
+        <table class="room">
+            <tbody>
+                  <tr th:each="room : ${roomlist}">
+                          <td><a th:href="@{'/businessroominfo/' + ${room.roomId}}">
+                            <input type="hidden" class="roominfo_image">
+                                <img class="roomimg" th:src="${room.roomPhoto}"/>
+                            </a></td>
+                            <td class="info">
+                                <div>
+                                    <p class="roomtitle" th:text="${room.roomTitle}"></p>
+                                </div>
+                                <div>
+                                    <p class="roominfo_count" th:text="'이용인원 : '+${room.guest}+'명'"></p>
+                                </div>
+                                <div class="roominfo_checkedp">
+                                    <p th:text="${room.roomPrice}+'원'"></p>
+                                </div>
+                            </td>
+                  </tr>
+            </tbody>
+          </table>
+        </div>
+</body>
+</html>

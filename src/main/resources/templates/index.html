@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">   
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+</head>
+<body>
+  <header th:replace="fragments/common :: navbars">
+  </header>
+  <div class="search-container">
+    <form class="banner_search" th:action="@{/search/searchForm}" method="get">
+      <div class="search-contain" style="display: flex; align-items: center; padding : 25px; flex-wrap: wrap; opacity: 0.95;">
+        <div style="margin-right: 10px;">
+          <input type="text" id="start-date" placeholder="체크인">
+        </div>
+        <div style="margin-right: 10px;">
+          <input type="text" id="end-date" placeholder="체크아웃">
+        </div>
+        <div style="margin-right: 10px; ">
+          <input type="number" min="1" max="9" placeholder="인원">
+        </div>
+        <div style="margin-right: 10px;">
+          <input type="text" placeholder="어디로 가시나요?">
+        </div>
+        <div>
+          <button type="submit">검색</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <main>
+    <div class="image-grid">
+      <div class="image-container">
+        <a th:href="@{/roominfo}">
+          <img src="image/image1.JPG" alt="Image 1" width="265" height="255">
+        </a>
+        <div class="image-description">드림호텔</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image2.jpg" alt="Image 2" width="265" height="255">
+        </a>
+        <div class="image-description">러브펜션</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image3.jpg" alt="Image 3" width="265" height="255">
+        </a>
+        <div class="image-description">밝은펜션</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image4.jpg" alt="Image 4" width="265" height="255">
+        </a>
+        <div class="image-description">희망펜션</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image5.jpg" alt="Image 5" width="265" height="255">
+        </a>
+        <div class="image-description">이미지 5 설명</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image6.jpg" alt="Image 6" width="265" height="255">
+        </a>
+        <div class="image-description">이미지 6 설명</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image7.jpg" alt="Image 7" width="265" height="255">
+        </a>
+        <div class="image-description">이미지 7 설명</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image8.jpg" alt="Image 8" width="265" height="255">
+        </a>
+        <div class="image-description">이미지 8 설명</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image9.jpg" alt="Image 9" width="265" height="255">
+        </a>
+        <div class="image-description">이미지 9 설명</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image10.jpg" alt="Image 10" width="265" height="255">
+        </a>
+        <div class="image-description">이미지 10 설명</div>
+      </div>
+      
+      <div class="image-container">
+        <a href="https://www.naver.com">
+          <img src="image/image11.jpg" alt="Image 11" width="265" hegiht="255">
+          </a>
+          <div class="image-description">이미지 11 설명</div>          
+          </div> 
+         
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image12.jpg" alt="Image 12" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 12 설명</div>
+          </div>
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image13.JPG" alt="Image 1" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 1 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image14.jpg" alt="Image 2" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 2 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image23.jpg" alt="Image 3" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 3 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image24.jpg" alt="Image 4" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 4 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image25.jpg" alt="Image 5" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 5 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image26.jpg" alt="Image 6" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 6 설명</div>
+          </div>
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image21.JPG" alt="Image 1" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 1 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image22.jpg" alt="Image 2" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 2 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image23.jpg" alt="Image 3" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 3 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image24.jpg" alt="Image 4" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 4 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image25.jpg" alt="Image 5" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 5 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image26.jpg" alt="Image 6" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 6 설명</div>
+          </div>
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image19.JPG" alt="Image 1" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 1 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image30.jpg" alt="Image 2" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 2 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image31.jpg" alt="Image 3" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 3 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image32.jpg" alt="Image 4" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 4 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image33.jpg" alt="Image 5" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 5 설명</div>
+          </div>
+          
+          <div class="image-container">
+            <a href="https://www.naver.com">
+              <img src="image/image34.jpg" alt="Image 6" width="265" height="255">
+            </a>
+            <div class="image-description">이미지 6 설명</div>
+          </div>
+        </div>        
+      </main>
+  <footer th:replace="fragments/common :: footers">
+  </footer>
+  <script>
+    $( function() {
+      $("#start-date").datepicker({
+        dateFormat: "yy-mm-dd",
+        minDate: 0,
+        onClose: function(selectedDate) {
+          $("#end-date").datepicker("option", "minDate", selectedDate);
+        }
+      });
+      
+      $("#end-date").datepicker({
+        dateFormat: "yy-mm-dd",
+        minDate: 0,
+        onClose: function(selectedDate) {
+          $("#start-date").datepicker("option", "maxDate", selectedDate);
+        }
+      });
+    });
+    </script>
+</body>
+</html>

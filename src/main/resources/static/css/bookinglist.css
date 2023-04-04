@@ -1,0 +1,95 @@
+/* 사이드바 시작 */
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    text-align: center;
+}
+.sidebar li {
+    list-style-type: none;
+    font-size: 20px;
+}
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+/*사이드바끝*/
+
+.logo img {
+    height: 70px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+nav li:last-child {
+    margin-right: 0;
+    color : #1A8BFF;
+}
+nav a:hover {
+    color: rgb(112, 112, 112);
+}
+
+nav li {
+    margin-left: 20px;
+    list-style-type: none;
+    color : #1A8BFF;
+    text-align: center;
+}
+.booking-list {
+    margin-left: 200px;
+    padding: 20px;
+    text-align: center;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    z-index: 1; /* 새로운 부분 */
+}
+
+/* 테이블 꾸미기 */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

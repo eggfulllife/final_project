@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head th:fragment="head(title)">
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="businessnav.css">
+  </head>
+      <div class="menu" th:fragment="businessnav">
+        <nav>
+          <ul>
+            <li><a href="#" th:href="@{/new-room}"><strong>객실등록</strong></a></li>
+            <li><a href="#" th:href="@{/roomlist}"><strong>객실정보</strong></a></li>
+            <li><a th:href="@{/rehistory}"><strong>예약확인</strong></a><li>
+            <li><a href="#income"><strong>매출</strong></a></li>
+            <li><a href="#checkin"><strong>체크인</strong></a></li>
+            <li><a href="#checkout"><strong>체크아웃</strong></a></li>
+            <li><a href="#" th:href="@{/reviewlist}"><strong>리뷰</strong></a></li>
+          </ul>
+        </nav>
+      </div>
+    </html>

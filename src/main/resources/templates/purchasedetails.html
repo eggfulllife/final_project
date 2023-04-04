@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking List</title>
+    <link rel="stylesheet" href="css/reservationcheck.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" style="background-color: #ffffff;">
+            <br> <h2>&nbsp;&nbsp;MY ROOM</h2><br>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" th:href="@{/reservationcheck}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;예약확인</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/purchasedetails}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이용내역</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/form}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;임시등록</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <h1 style="margin-bottom: 40px;">이용내역</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>예약번호</th>
+                    <th>이메일주소</th>
+                    <th>객실번호</th>
+                    <th>숙박업체이름</th>
+                    <th>객실이름</th>
+                    <th>체크인날짜</th>
+                    <th>체크아웃날짜</th>
+                    <th>예약상태</th>
+                    <th>결제수단</th>
+                    <th>가격</th>
+                    <th>결제일</th>
+                    <th>객실확인</th>
+                    <th>리뷰쓰기</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="booking : ${bookings}">
+                    <td th:text="${booking.bo_num}"></td>
+                    <td th:text="${booking.email}"></td>
+                    <td th:text="${booking.ro_num}"></td>
+                    <td th:text="${booking.bu_title}"></td>
+                    <td th:text="${booking.ro_name}"></td>
+                    <td th:text="${booking.checkin}"></td>
+                    <td th:text="${booking.checkout}"></td>
+                    <td th:text="${booking.status}"></td>
+                    <td th:text="${booking.payment}"></td>
+                    <td th:text="${booking.price}"></td>
+                    <td th:text="${booking.reg_date}"></td>
+                    <td><a class="btn btn-primary" th:href="@{/edit/{bo_num}(bo_num=${booking.bo_num})}" style="color: #fff;">확인</a></td>
+                    <td><a class="btn btn-danger" th:href="@{/new-review}" style="color: #fff;">리뷰</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

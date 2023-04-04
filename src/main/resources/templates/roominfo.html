@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="css/roominfo.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Open+Sans&family=Roboto&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/style.css"/>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+</head>
+
+<body>
+<header th:replace="fragments/common :: navbars"></header>
+
+<div class="hotel_info_div">
+  <div class="hotel_info_common">
+    <div class="hotel_image">
+      <img class="img" src="image/image1.JPG">
+    </div>
+    <div class="hotel_info">
+      <div class="hotel_name">
+        <p><span style="font-size:150%">드림호텔</span></p>
+        <p>
+          <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+          <span>서울 강남구 청담동 53-7</span>
+        </p>
+        <div class="seller_info">
+          <ol class="seller_name">대표 이름 : 고영서</ol>
+          <ol class="seller_num">대표 전화번호: 01011112222</ol>
+        </div>
+      </div>
+      <div class="map">
+
+        <div id="daumRoughmapContainer1676429254780" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+        <script charset="UTF-8" class="daum_roughmap_loader_script"
+                src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+        <script charset="UTF-8">
+          new daum.roughmap.Lander({
+            "timestamp": "1676429254780",
+            "key": "2dqwk",
+            "mapWidth": "800",
+            "mapHeight": "250"
+          }).render();
+        </script>
+      </div>
+    </div>
+  </div>
+    <div class="padding">
+      <div class="room-click"> 객실안내/예약 </div>
+      <div class="room-unclick"><a href="#" th:href="@{/review}">리뷰</a></div>
+    </div>
+
+<!--    <div class="search-contain" style="display: flex; align-items: center; padding : 25px; flex-wrap: wrap; opacity: 0.95;">-->
+<!--      <div  class="checkin">-->
+<!--        <input type="text"  placeholder="체크인">-->
+<!--      </div>-->
+<!--      <div  class="checkin">-->
+<!--        <input type="text"  placeholder="체크아웃">-->
+<!--      </div>-->
+<!--      <div class="checked">-->
+<!--        <button type="button" onclick="location.href='http://www.naver.com'">검색</button>-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="roominfo" >
+      <div class="room" th:each="room : ${roomlist}">
+        <div class="roominfo_image">
+          <img class="roomimg" th:src="${room.roomPhoto}"/>
+        </div>
+        <div class="info">
+          <div class="roominfo_name">
+            <p class="roomtitle" th:text="${room.roomTitle}">
+          </div>
+          <div class="roominfo_count" th:text="'이용인원 : '+${room.guest}+'명'">
+          </div>
+          <div class="roominfo_time" th:text="'체크인시간 : '+${room.checkIn}">
+          </div>
+          <div class="none"></div>
+          <div class="roominfo_price">
+            가격
+          </div>
+          <div class="roominfo_checkedp" th:text="'1박 기준 '+${room.roomPrice}+'원'">
+          </div>
+        </div>
+        <div class="box">
+          <div>
+            <button class="roominfobutton" type="button" style="cursor:pointer; color: white" ><a href="#" target="_blank-popup" th:href="@{'/room-detail/' + ${room.roomId}}">방 정보</a></button>
+            <button class="roomreservation" type="button" style="cursor:pointer"><a href="#" th:href="@{'/reservation/reserve/' + ${room.roomId}}">예약</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<footer th:replace="fragments/common :: footers"></footer>
+<script th:replace="fragments.html :: form-check-byte"></script>
+<script>
+  $( function() {
+    $("#start-date").datepicker({
+      dateFormat: "yy-mm-dd",
+      minDate: 0,
+      onClose: function(selectedDate) {
+        $("#end-date").datepicker("option", "minDate", selectedDate);
+      }
+    });
+
+    $("#end-date").datepicker({
+      dateFormat: "yy-mm-dd",
+      minDate: 0,
+      onClose: function(selectedDate) {
+        $("#start-date").datepicker("option", "maxDate", selectedDate);
+      }
+    });
+  });
+</script>
+<script>
+    // 새 창을 열도록 target 속성 변경
+    $("a[target='_blank-popup']").attr("target", "_blank");
+
+    // 새 창 크기 설정
+    $("a[target='_blank']").click(function(event) {
+        event.preventDefault();
+        window.open($(this).attr("href"), "popupWindow", "width=500,height=500");
+    });
+</script>
+
+</body>
+
+</html> 

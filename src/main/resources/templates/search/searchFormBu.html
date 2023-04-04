@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/loginForm">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/cae1ae3235.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3c093d159a9d0164996f73362be55e89"></script>
+</head>
+<body>
+
+<header>
+    <a href="#" th:href="@{/}">
+        <div class="logo">
+            <img src="image/logo.png" alt="Logo">
+        </div>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="#" th:href="@{/member/loginForm}">로그인</a></li>
+            <li><a href="#" th:href="@{/member/meSignUpForm}">회원가입</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="detail-box">
+    <div class="container">
+        <div class="title">
+            <h1>상세조건</h1>
+        </div>
+        <form class="needs-validation" action="#" th:action="@{/search/searchForm}" th:object="${searchForm}" method="post" novalidate>
+            <div class="date-box">
+                <input th:field="*{checkIn}" type="date" class="booking"> <br><br>
+                <input th:field="*{checkOut}" type="date" class="booking">
+            </div>
+            <div class="sub-box">
+                <h3>인원 수</h3>
+                <input class="box" type="number" min="1" max="8">
+            </div>
+            <div class="sub-box">
+                <h3>검색</h3>
+                <input class="box" type="search">
+            </div>
+            <div class="sub-box">
+                <form>
+                    <h3>가격 :<output id="amount" name="amount" for="rangeInput">0</output>만원 </h3>
+                    <input type="range" th:field="*{price}" id="rangeInput" name="rangeInput" min="1" max="50" value="0" oninput="amount.value = rangeInput.value">
+                </form>
+                <input class="submit" type="submit" value="적용">
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    // 지도 생성
+    const mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new kakao.maps.LatLng(37.528540, 126.993171), // 지도의 중심좌표
+            level: 4 // 지도의 확대 레벨
+        };
+    const map = new kakao.maps.Map(mapContainer, mapOption);
+
+    /*// 지도에 출력할 주소
+    const resultAddress = ${resultAddress}
+    // 지도에 출력 타이틀
+    const roomTitle = ${roomTitle}
+    // 지도에 출력할 사진
+    const roomPic = ${roomPhoto}
+    const bu_email = ${business_email}*/
+    // 지도에 출력할 주소
+
+    //지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
+    var bounds = new kakao.maps.LatLngBounds();
+
+    for (let i = 0; i < resultAddress.length; i++) {
+        // 주소-좌표 변환 객체를 생성합니다
+        const geocoder = new kakao.maps.services.Geocoder();
+        // 주소로 좌표를 검색합니다
+        geocoder.addressSearch(resultAddress[i], function(result, status) {
+            // 정상적으로 검색이 완료됐으면
+            if (status === kakao.maps.services.Status.OK) {
+                const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                // LatLngBounds 객체에 좌표를 추가합니다
+                bounds.extend(coords);
+
+                // 결과값으로 받은 위치를 마커로 표시합니다
+                const marker = new kakao.maps.Marker({
+                    map: map,
+                    position: coords
+                });
+                let content = '';
+
+                //마커 위에 커스텀오버레이를 표시합니다
+                // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+                var overlay = new kakao.maps.CustomOverlay({
+                    content: content,
+                    position: marker.getPosition()
+                });
+
+                // 마커에 클릭이벤트를 등록합니다
+                kakao.maps.event.addListener(marker, 'click', function() {
+
+                    content =
+                        '<div class="wrap">' +
+                        '    <div class="info">' +
+                        '        <div class="title">' +
+                        roomTitle[i] +
+                        '        </div>' +
+                        '        <div class="body">' +
+                        '            <div class="img">' +
+                        '                <img src="'+roomPhoto[i]+'" width="73" height="70">' +
+                        '           </div>' +
+                        '            <div class="desc">' +
+                        '                <div class="ellipsis">'+resultAddress[i]+'</div>' +
+                        //  '                <div><a th:href="${pageContext.request.contextPath}/reservation/detail?bu_email='+bu_email[i]+'&checkin=${checkin}&checkout=${checkout}&ro_count=${ro_count}" target="_self" class="link">객실 보러가기</a></div>' +
+                        '            </div>' +
+                        '        </div>' +
+                        '    </div>' +
+                        '</div>'
+
+                    overlay.setContent(content);
+                    // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+                    if(overlay.getMap() == null)
+                        overlay.setMap(map);
+                    else
+                        overlay.setMap(null);
+
+                    map.setCenter(coords);
+
+                });
+                map.setBounds(bounds);
+            }
+        });
+    }
+</script>
+
+<section class="image-box">
+    <div class="test">
+    <div class="booking-box" th:each="business : ${businessList}" >
+        <div class="image" th:text="${business.hotelPhoto}"> </div>
+        <div class="desc">
+            <div class="name">
+                <h4 th:text="${business.buTitle}"></h4>
+                <h6 th:text="${business.buAddress}"> <i class="fa fa-map-marker" aria-hidden="true"></i> </h6>
+            </div>
+
+
+        </div>
+    </div>
+        <div class="test2" th:each="room : ${roomlist}">
+        <div class="price">
+            <h5>가격</h5> <h1 th:text="${room.roomPrice}">10000원</h1>
+        </div>
+
+        <div class="button">
+            <button type="submit" th:href="@{/roominfo}">숙소 살펴보기</button>
+        </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>

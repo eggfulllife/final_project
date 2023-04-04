@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Poppins';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a img {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+address,
+em,
+i {
+  font-style: normal;
+}
+
+.new-room, .modify-room {padding: 0 25%;}
+h2 { text-align: center; padding: 3% 0;}
+
+#room-title, #room-price {width: 90%; padding: 1%; margin: 3px 0;}
+
+.check-room-title {color: red;}
+
+.check-in-box, .check-out-box {width: 20%; display: inline-block;}
+#check-in, #check-out {width: 90%; padding:1px;}
+
+.guest-box {clear:both; line-height: 24px;}
+.guest {justify-content: center; padding: 1px;}
+
+#room-info, #room-photo {width: 100%; height: 250px; padding: 1%; margin-top: 3px; overflow: scroll;}
+
+button {
+  width: 120px;
+  padding: 0;
+  margin: 10px auto;
+  display: block;
+  position: relative;
+  background: #1a8bff;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: #0a3a69;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adminlogin</title>
+    <link rel="stylesheet" href="/css/adminlogin.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Open+Sans&family=Roboto&display=swap"
+      rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  </head>
+<body>
+    <div class="logo">
+        <img class="logo-img" src="image/logo.png">
+    </div>
+    <div class="login">
+        <form th:action="@{'/adminlogin'}" th:object="${adminForm}" method="post" novalidate>
+            <input id='id' type='text' th:field="*{adminID}" required placeholder="이메일"/><br>
+            <input id='pwd' type='password' th:field="*{adminPW}" required placeholder="비밀번호"/>
+            <button id='submit' style="cursor: pointer" type='submit' placeholder="로그인"/>로그인<br>
+        </form>
+    </div>
+</body>
+</html>

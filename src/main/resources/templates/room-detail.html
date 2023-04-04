@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>방 상세 페이지</title>
+  <link rel="stylesheet" href="/css/room-detail.css">
+</head>
+<body>
+<div th:object="${room}">
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img th:src="${room.roomPhoto}" style="width:100%">
+    </div>
+  </div>
+    <div class="title">
+      <p th:text="${room.roomTitle}"></p>
+    </div>
+      <table class="content">
+        <thead>
+          <tr>
+            <th colspan="2">객실기본정보</th>
+          </tr>
+          <tr>
+            <td>가격</td>
+            <th><p th:text="${room.roomPrice}"></p></th>
+          </tr>
+          <tr>
+            <td>체크인</td>
+            <th scope="row"><p th:text="${room.checkIn}"></p></th>
+          </tr>
+          <tr>
+            <td>체크아웃</td>
+            <th scope="row"><p th:text="${room.checkOut}"></p></th>
+          </tr>
+        </thead>
+      </table>
+      <div class="Moreinfor"><p th:text="${room.roomInfo}"></p></div>
+      <button class="close" style="cursor:pointer" onclick="closeWindow()">닫기</button>
+</div>
+<!--<script>-->
+<!--    var slideIndex = 1;-->
+<!--    showSlides(slideIndex);-->
+
+<!--    function plusSlides(n) {-->
+<!--        showSlides(slideIndex += n);-->
+<!--    }-->
+
+<!--    function showSlides(n) {-->
+<!--        var i;-->
+<!--        var slides = document.getElementsByClassName("mySlides");-->
+<!--        if (n > slides.length) {-->
+<!--            slideIndex = 1-->
+<!--        }-->
+<!--        if (n < 1) {-->
+<!--            slideIndex = slides.length-->
+<!--        }-->
+<!--        for (i = 0; i < slides.length; i++) {-->
+<!--            slides[i].style.display = "none";-->
+<!--        }-->
+<!--        console.log(slides); // 슬라이드 배열 확인-->
+<!--        if (slides[slideIndex - 1]) {-->
+<!--            slides[slideIndex - 1].style.display = "block";-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+<script>
+    function closeWindow() {
+        window.close();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotelDream</title>
+    <link rel="stylesheet" href="/css/search/searchForm.css">
+
+    <script src="https://kit.fontawesome.com/cae1ae3235.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3c093d159a9d0164996f73362be55e89"></script>
+</head>
+<body>
+
+<header>
+    <a href="#" th:href="@{/}">
+        <div class="logo">
+            <img src="/image/logo.png" alt="Logo">
+        </div>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="#" th:href="@{/search/searchForm}">숙소찾기</a></li>
+            <li><a href="#" th:href="@{/member/loginForm}">로그인</a></li>
+            <li><a href="#" th:href="@{/member/meSignUpForm}">회원가입</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="you">
+    <section class="detail-box">
+        <div class="title">
+            <h1>상세조건</h1>
+        </div>
+        <form class="needs-validation" action="#" th:action="@{/search/searchForm}" th:object="${searchForm}" method="post" novalidate>
+            <div class="date-box">
+                <input th:field="*{checkIn}" type="date" class="booking"> <br><br>
+                <input th:field="*{checkOut}" type="date" class="booking">
+            </div>
+            <div class="sub-box">
+                <h3>인원 수</h3>
+                <input class="box" type="number" min="1" max="8">
+            </div>
+            <div class="sub-box">
+                <h3>검색</h3>
+                <input class="box" type="search">
+            </div>
+            <div class="sub-box">
+                <form>
+                    <h3>가격 :<output id="amount" name="amount" for="rangeInput">0</output>만원 </h3>
+                    <input type="range" th:field="*{price}" id="rangeInput" name="rangeInput" min="1" max="50" value="0" oninput="amount.value = rangeInput.value">
+                </form>
+                <input class="submit" type="submit" value="적용">
+            </div>
+        </form>
+    </section>
+</div>
+<div class="andI">
+    <section class="image-box">
+        <div class="booking-box" th:each="business : ${businessList}" >
+            <div class="image" th:text="${business.hotelPhoto}"> </div>
+                <div class="desc">
+                    <div class="name">
+                        <h4 th:text="${business.buTitle}"></h4>
+                        <h6 th:text="${business.buAddress}"> <i class="fa fa-map-marker" aria-hidden="true"></i> </h6>
+                    </div>
+                </div>
+                <div class="price">
+                    <h5>가격</h5> <h1>10000원</h1>
+                </div>
+            </div>
+    </section>
+</div>
+<footer>
+    <div class="gray_subtext">
+      <span>
+      (주)호텔드림 | 대표이사 : 이수정 | 사업자 등록번호 : 000-00-000000 | 통신판매업신고 : 호텔드림-0000호 | 메일 : hotel@dream.com
+      <br>관광사업자 등록번호 : 제2023-03호 | 주소 : 서울 동작구 사당2동 110 | 호스팅서비스 제공자 : 주식회사 호텔드림
+      <br>고객센터 : 1544-0000 (24시간 상시대기)
+      <br>(주)호텔드림은 통신판매 중개자로서 통신판매의 당사자가 아니며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.
+      </span>
+    </div>
+</footer>
+</body>
+</html>

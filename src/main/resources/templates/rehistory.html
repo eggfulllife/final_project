@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/rhistory.css">
+  <link rel="stylesheet" href="/businessstyle.css"/>
+  <title>예약 내역</title>
+</head>
+<body>
+<div th:replace="fragments/businessnav :: businessnav"></div>
+  <div class="container">
+    <h1>예약 내역</h1>
+<!--    <div class="search">-->
+<!--      <select name="item" id="">-->
+<!--        <option value="">방이름</option>-->
+<!--        <option value="">방이름</option>-->
+<!--        <option value="">방이름</option>-->
+<!--      </select>-->
+<!--      <input type="search" size="50">-->
+<!--      <button class="click" style="cursor: pointer;">검색</button>-->
+<!--    </div>-->
+    <table>
+      <thead>
+        <tr>
+          <th>객실 이름</th>
+          <th>이용인원 수</th>
+          <th>체크인</th>
+          <th>체크아웃</th>
+          <th>예약자 이름</th>
+          <th>핸드폰번호</th>
+          <th>Email</th>
+          <th>예약 상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="booking : ${bookings}">
+          <td th:text="${booking.ro_name}"></td>
+          <td th:text="${booking.guest}"></td>
+          <td th:text="${booking.checkin}"></td>
+          <td th:text="${booking.checkout}"></td>
+          <td th:text="${booking.name}"></td>
+          <td th:text="${booking.phoneNumber}"></td>
+          <td th:text="${booking.email.email}"></td>
+          <td th:text="${booking.status}"></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="8">
+            <span>Prev</span>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <span>Next</span>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</body>
+
+</html>

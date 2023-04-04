@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking List</title>
+    <link rel="stylesheet" type="text/css" href="css/bookinglist.css">
+</head>
+<body>
+<header th:fragment="navbars">
+    <a href="#">
+        <div class="logo">
+            <a th:href="@{/}"><img src="image/logo.png" alt="Logo"></a>
+        </div>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="#" th:href="@{/search/searchForm}">숙소찾기</a></li>
+            <li><a href="#" th:href="@{/member/loginForm}">로그인</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="sidebar">
+    <li><a th:href="@{/bookinglist}">예약확인</a></li>
+    <li><a th:href="@{/bookinglistcheck}">이용확인</a></li>
+</div>
+<div class="booking-list">
+    <h1>예약목록</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>예약 번호</th>
+            <th>체크인 날짜</th>
+            <th>체크아웃 날짜</th>
+            <th>게스트 이름</th>
+            <th>전화번호</th>
+            <th>객실 이름</th>
+            <th>상호명</th>
+            <th>가격</th>
+            <th>상태</th>
+            <th>등록일</th>
+            <th>예약취소</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="booking : ${bookings}">
+            <td th:text="${booking.bo_num}"></td>
+            <td th:text="${booking.checkin}"></td>
+            <td th:text="${booking.checkout}"></td>
+            <td th:text="${booking.name}"></td>
+            <td th:text="${booking.phoneNumber}"></td>
+            <td th:text="${booking.ro_name}"></td>
+            <td th:text="${booking.buTitle.buTitle}"></td>
+            <td th:text="${booking.price}"></td>
+            <td th:text="${booking.status}"></td>
+            <td th:text="${booking.reg_date}"></td>
+            <td>
+                <form th:action="@{/booking/delete/{bo_num}(bo_num=${booking.bo_num})}" method="post"
+                      onsubmit="return confirm('정말 취소하시겠습니까? (한번 취소된 예약은 복구할 수 없습니다.')">
+                    <button type="submit">삭제</button>
+                </form>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<footer th:replace="fragments/common :: footers">
+</footer>
+</body>
+</html>

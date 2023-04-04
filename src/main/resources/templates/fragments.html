@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+  <link rel="stylesheet" href="/css/roomlist.css"/>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div class="menu" th:fragment="menu">
+  <nav>
+    <ul>
+      <li><a href="#" th:href="@{/new-room}"><strong>객실등록</strong></a></li>
+      <li><a href="#info"><strong>객실정보</strong></a></li>
+      <li><a href="#" th:href="@{/rehistory}"><strong>예약확인</strong></a><li>
+      <li><a href="#income"><strong>매출</strong></a></li>
+      <li><a href="#checkin"><strong>체크인</strong></a></li>
+      <li><a href="#checkout"><strong>체크아웃</strong></a></li>
+      <li><a href="#review"><strong>리뷰</strong></a></li>
+    </ul>
+  </nav>
+</div>
+
+
+<script type="text/javascript" th:fragment="form-check-byte">
+    function fCheckByte(obj, maxByte){
+        const room_info = obj.value;  // 입력한 문자
+        const room_info_len = room_info.length; // 입력한 문자 길이
+
+        let writeByte = 0;
+        let writeByteLen = 0;
+        let outWrite = "";
+
+        for(let i = 0; i<room_info_len; i++){
+            const each_char = room_info.charAt(i);
+            const uni_char = escape(each_char); // 유니코드 형식으로 변환
+            if(uni_char.length > 4){
+                writeByte += 2; //한글 2Byte
+            }else{
+                writeByte++; //영문 등 나머지 1Byte
+            }
+            if(writeByte <= maxByte){
+                writeByteLen = i+1; //return 할 문자열 갯수
+            }
+        }
+
+        if(writeByte > maxByte){
+            alert("객실 기본 정보는 최대 " + maxByte + "byte까지만 입력할 수 있습니다.")
+            outWrite = room_info.substr(0,writeByteLen); //문자열 자르기
+            obj.value = outWrite;
+            fCheckByte(obj, maxByte);
+        }
+        else{
+            document.getElementById("now-byte").innerText = writeByte;
+        }
+    }
+</script>
+</body>
+</html>
