@@ -1,0 +1,106 @@
+/*황성구씨 nav */
+header {
+    background-color: rgb(255, 255, 255);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0 10px;
+}
+
+a {
+    color: 1a8bff;
+    text-decoration: none;
+    color:#1A8BFF;
+}
+
+.logo img {
+    height: 70px;
+}
+
+nav ul {
+    margin-right: 0;
+}
+
+nav li:last-child {
+    margin-right: 0;
+    color : #1A8BFF;
+}
+nav a:hover {
+    color: rgb(112, 112, 112);
+}
+/*황성구씨 nav 끝*/
+
+.title{
+    text-align: center;
+    font-size: 80px;
+    font-weight: bolder;
+    color: #1A8BFF;
+}
+
+.needs-validation{
+    text-align: center;
+    margin-top: 5%;
+}
+.form-group{
+    margin: 2%;
+}
+
+input, textarea{
+    width: 50%;
+    height: 5vh;
+    font-weight: bold;
+    font-size: large;
+}
+
+button{
+    padding: 10px;
+    width: 20%;
+    font-weight: 600;
+    color: #FFF;
+    border-radius: 5px;
+    transition: all 0.2s ;
+    background-color: #1A8BFF;
+    height: 5vh;
+    font-size: large;
+    border: none;
+}
+
+button:hover {
+    background: #01939A;
+}
+
+
+/*황성구씨 푸터*/
+footer {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 40px;
+    text-align: center;
+}

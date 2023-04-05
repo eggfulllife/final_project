@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Control</title>
+    <link rel="stylesheet" type="text/css" href="css/reviewlist.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>관리자 악플관리</h1>
+<table>
+    <thead>
+    <tr>
+        <th>리뷰번호</th>
+        <th>이메일(아이디)</th>
+        <th>예약번호</th>
+        <th>리뷰내용</th>
+        <th>작성날짜</th>
+        <th>별점</th>
+        <th>사장님 댓글</th>
+        <th>삭제</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="review : ${reviews}">
+        <td th:text="${review.rev_num}"></td>
+        <td th:text="${review.email}"></td>
+        <td th:text="${review.bo_num}"></td>
+        <td th:text="${review.reviewContent}"></td>
+        <td th:text="${review.review_date}"></td>
+        <td th:text="${review.score}"></td>
+        <td th:text="${review.content_reply}"></td>
+        <td>
+            <form th:action="@{/deleteReview}" method="post">
+                <input type="hidden" th:name="id" th:value="${review.rev_num}"/>
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,138 @@
+/*font*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&display=swap');
+
+
+/*황성구씨 nav */
+header {
+    background-color: rgb(255, 255, 255);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0 10px;
+}
+
+a {
+    color: 1a8bff;
+    text-decoration: none;
+    color:#1A8BFF;
+}
+
+.logo img {
+    height: 70px;
+}
+
+nav ul {
+    margin-right: 0;
+}
+
+nav li:last-child {
+    margin-right: 0;
+    color : #1A8BFF;
+}
+nav a:hover {
+    color: rgb(112, 112, 112);
+}
+/*황성구씨 nav 끝*/
+
+
+.box{
+    max-width: 70%;
+    min-height: 60vh;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+.img-container img{
+    width: 50%;
+    height: 60%;
+}
+
+.input-fields{
+    width: 50%;
+    height: 60%;
+}
+
+input{
+    width: 100%;
+    height: 5vh;
+    font-weight: bold;
+    font-size: large;
+}
+
+.input-field{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 5vh;
+    margin: 5%;
+    color: black;
+}
+::-webkit-input-placeholder{
+    color: #1a8bff;
+}
+
+.input-field #last{
+    width: 48.2%;
+    margin-left: 6px;
+    height: 8vh;
+    border: none;
+    font-size: larger;
+    border-radius: 10px;
+    background-color: #1a8bff;
+}
+
+.input-field #last:hover{
+    background: blue;
+}
+button {
+    margin-left: 5%;
+    padding: 10px;
+    width: 91%;
+    border:none;
+    font-weight: 600;
+    color: #FFF;
+    border-radius: 5px;
+    transition: all 0.2s ;
+    background-color: #1A8BFF;
+    height: 5vh;
+    font-size: large;
+}
+
+button:hover {
+    background: #01939A;
+}
+
+/*황성구씨 푸터*/
+footer {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 40px;
+    text-align: center;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="css/review.css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Open+Sans&family=Roboto&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  <link rel="stylesheet" href="/style.css"/>
+
+</head>
+
+<body>
+<header th:replace="fragments/common :: navbars"></header>
+
+  <div class="hotel_info_div">
+    <div class="hotel_info_common">
+      <div class="hotel_image">
+        <img class="img" src="image/image1.JPG">
+      </div>
+      <div class="hotel_info">
+        <div class="hotel_name">
+          <p><span style="font-size:150%">고잉호텔</span></p>
+          <p>
+            <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+            <span>서울 강남구 청담동 53-7</span>
+          </p>
+          <div class="seller_info">
+            <ol class="seller_name">대표 이름 : 고영서</ol>
+            <ol class="seller_num">대표 전화번호: 01011112222</ol>
+          </div>
+        </div>
+        <div class="map">
+
+          <div id="daumRoughmapContainer1676429254780" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+          <script charset="UTF-8" class="daum_roughmap_loader_script"
+            src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+          <script charset="UTF-8">
+            new daum.roughmap.Lander({
+              "timestamp": "1676429254780",
+              "key": "2dqwk",
+              "mapWidth": "800",
+              "mapHeight": "250"
+            }).render();
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="padding">
+      <div class="review-unclick"><a href="#" th:href="@{/roominfo}"> 객실안내/예약 </a></div>
+      <div class="review-click" style="cursor:pointer">리뷰</div>
+    </div>
+       <div class="Review-comment" th:each="review : ${reviewlist}">
+        <div class="Review-star"th:text="'별점 : '+${review.score}+'/5'"></div>
+        <div class="Review-comment-id" th:text="${review.member}"></div>
+        <div class="Review-comment-room"></div>
+        <div class="Review-comment-date" th:text="${review.review_date}"></div>
+        <div class="Review-comment-body" th:text="${review.reviewContent}"></div>
+         <div class="hr">호스트의 답글 : </div>
+         <div class="Review-reply-body" th:text="${review.content_reply} ?: ' 답변이 아직 없습니다.'"></div>
+
+       </div>
+    </div>
+
+  <footer th:replace="fragments/common :: footers"></footer>
+  <script th:replace="fragments.html :: form-check-byte"></script>
+
+</body>
+
+</html>

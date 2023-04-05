@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&display=swap');
+
+/*황성구씨 nav */
+header {
+    background-color: rgb(255, 255, 255);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0 10px;
+}
+
+a {
+    color: 1a8bff;
+    text-decoration: none;
+    color:#1A8BFF;
+}
+
+.logo img {
+    height: 70px;
+}
+
+nav ul {
+    margin-right: 0;
+}
+
+nav li:last-child {
+    margin-right: 0;
+    color : #1A8BFF;
+}
+nav a:hover {
+    color: rgb(112, 112, 112);
+}
+/*황성구씨 nav 끝*/
+.you{
+    margin-left: 10%;
+}
+.andI{
+    height: 80vh;
+}
+
+.detail-box{
+    float: left;
+    width: 25%;
+    height: 55vh;
+    margin-left: 5%;
+    border: 1px solid gray;
+}
+
+input {
+    width: 80%;
+    margin-left: 8%;
+}
+
+.name>h6{
+    margin-left: 5px;
+}
+
+.booking-box{
+    /*width: ;*/
+    display: flex;
+    border: 1px solid #bcbcbc;
+    margin: 15px;
+}
+
+.price>h5{
+    font-size: 20px;
+    margin-bottom: -5%;
+    margin-top: 3%;
+}
+.price>h1{
+    margin-top: 3%;
+    margin-bottom: -5%;
+}
+.booking-box .image{
+    width: 65%;
+    height: 100%;
+}
+.booking-box .desc{
+    width: 60%;
+    height: 100%;
+    margin-left:-25%;
+}
+
+h1, h3{
+    margin-left: 30px;
+}
+
+.name{
+    font-size: 40px;
+    margin-top: -10%;
+}
+.name>h6{
+    font-size: small;
+    margin-top: -10%;
+}
+.name>h1{
+    margin-bottom: 10%;
+}
+.title:after {
+    content: "";
+    display: block;
+    width: 370px;
+    border-bottom: 1px solid #bcbcbc;
+    margin: 20px auto;
+}
+.title{
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.date-box:after {
+    content: "";
+    display: block;
+    width: 370px;
+    border-bottom: 1px solid #bcbcbc;
+    margin: 20px auto;
+}
+
+
+.sub-box:not(:last-child):after {
+    content: "";
+    display: block;
+    width: 370px;
+    border-bottom: 1px solid #bcbcbc;
+    margin: 20px auto;
+}
+
+.sub-box:last-child{
+    height: 40vh;
+}
+
+
+.image-box{
+    width: 40%;
+    height: 50vh;
+    float: right;
+    padding: 3%;
+    margin-right: 12%;
+    margin-top: -4%;
+}
+
+.booking-box{
+    border: 1px solid gray;
+
+}
+.image{
+    width: 40%;
+}
+
+input.submit{
+    display: block;
+    color: lightgray;
+    font-weight: 600;
+    width: 80%;
+    height: 50px;
+    font-size: larger;
+    text-align: center;
+    line-height: 50px;
+    margin: 20px 40px;
+    background: #1a8bff;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.2s ;
+}
+
+
+input.submit:hover {
+    background: #01939A;
+}
+
+form>input{
+    width: 80%;
+}
+
+button {
+    margin-top: 10%;
+    display: block;
+    width: 90%;
+    padding: 0;
+    font-weight: 600;
+    text-align: center;
+    line-height: 50px;
+    color: lightgray;
+    border-radius: 5px;
+    transition: all 0.2s ;
+    background:#1a8bff;
+    border: none;
+    margin-left: 4%;
+    margin-bottom: 3%;
+}
+
+button:hover {
+    background: #01939A;
+}
+
+
+
+/*황성구씨 푸터*/
+footer {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 40px;
+    text-align: center;
+}
+
+

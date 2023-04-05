@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head th:fragment="head(title)">
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  </head>
+    <header th:fragment="navbars">
+      <a href="#">
+        <div class="logo">
+          <a th:href="@{/}"><img src="image/logo.png" alt="Logo"></a>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#" th:href="@{/search/searchForm}">숙소찾기</a></li>
+          <li><a href="#" th:href="@{/member/loginForm}">로그인</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <footer th:fragment="footers">
+      <div class="gray_subtext">
+      <span>
+      (주)호텔드림 | 대표이사 : 이수정 | 사업자 등록번호 : 000-00-000000 | 통신판매업신고 : 호텔드림-0000호 | 메일 : hotel@dream.com
+      <br>관광사업자 등록번호 : 제2023-03호 | 주소 : 서울 동작구 사당2동 110 | 호스팅서비스 제공자 : 주식회사 호텔드림
+      <br>고객센터 : 1544-0000 (24시간 상시대기)
+      <br>(주)호텔드림은 통신판매 중개자로서 통신판매의 당사자가 아니며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.
+      </span>
+    </div>
+    </footer>
+    </html>

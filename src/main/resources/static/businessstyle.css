@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a img {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.sub {
+  font-family: 'Roboto', sans-serif;
+}
+
+.menu{
+  clear: both;
+  width: 70%;
+  height: 40px;
+  margin-left: 15%;
+  line-height: 40px;
+  background-color: lightgray;
+  color: white;
+  font-size: 20px;
+  margin-top: 20px;
+  overflow: hidden;
+  display: inline-block;
+}
+nav ul li{
+  float: left;
+  width: 10%;
+  text-align: center;
+  margin:0px 2%;
+  overflow: hidden;
+
+}

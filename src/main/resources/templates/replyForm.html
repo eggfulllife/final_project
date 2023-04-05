@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reply Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+<h2>&nbsp;&nbsp;소비자 리뷰에 사장님 리플달기</h2>
+<form th:action="@{/saveReply}" method="post">
+    <input type="hidden" th:name="id" th:value="${review.rev_num}"/>
+    <div>
+        <label></label>
+        <p th:text="${review.reviewContent}">리뷰내용 : </p>
+    </div>
+    <div>
+        <label for="replyContent"></label>
+        <textarea id="replyContent" name="replyContent" rows="5" cols="50"></textarea>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">작성완료</button>
+</form>
+</body>
+</html>

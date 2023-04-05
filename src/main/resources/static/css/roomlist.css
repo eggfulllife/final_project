@@ -1,0 +1,177 @@
+@charset "utf-8";
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    font-size: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a img {
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+address,
+em,
+i {
+    font-style: normal;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.title {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.sub {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* .innerHeader */
+body {
+    max-width: 100%;
+}
+.menu{
+    width: 70%;
+    height: 40px;
+    margin-left: 15%;
+    line-height: 40px;
+    background-color: lightgray;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    display: inline-block;
+}
+nav ul li{
+    float: left;
+    width: 10%;
+    text-align: center;
+    margin:0px 2%;
+    overflow: hidden;
+}
+
+.roominfo {
+    clear:both;
+    width: 60%;
+    margin-bottom: 40px;
+    margin-left: 20%;
+
+
+}
+.room{
+    width:75%;
+    margin: 10px auto;
+    margin-top: 50px;
+}
+table{
+    border-collapse: collapse;
+
+}
+tr{
+    width: 100%;
+    border-collapse: collapse;
+
+
+}
+td{
+    width: 60%;
+    border-bottom: 1px solid gray;
+    border-collapse: collapse;
+    height: 300px;
+
+}
+
+.roominfo_image{
+    width: 40%;
+    margin: 10px;
+
+}
+.roomimg{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+.info{
+    width: 40%;
+    height: 300px;
+    padding-top: 30px;
+    padding-left: 10%;
+    margin-left: 10%;
+
+
+}
+.roomtitle{
+    font-size: 30px;
+    font-weight: bolder;
+    display: block;
+    padding-top: 30px;
+}
+.roominfo_count{
+    font-size: 10px;
+    display: block;
+    padding-top: 30px;
+
+}
+
+.roominfo_checkedp{
+    font-size: 20px;
+    font-weight: border;
+    color:black;
+    float: right;
+    height: 200px;
+    line-height: 200px;
+
+}
+.box{
+    float: right;
+    width: 55%;
+    height: 150px;
+    padding-top: 30px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking List</title>
+    <link rel="stylesheet" type="text/css" href="css/bookinglist.css">
+</head>
+<body>
+<header th:replace="fragments/common :: navbars">
+</header>
+<div class="sidebar">
+    <li><a th:href="@{/bookinglist}">예약확인</a></li>
+    <li><a th:href="@{/bookinglistcheck}">이용확인</a></li>
+
+</div>
+
+<div class="booking-list">
+    <h1>이용목록</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>예약 번호</th>
+            <th>체크인 날짜</th>
+            <th>체크아웃 날짜</th>
+            <th>게스트 이름</th>
+            <th>전화번호</th>
+            <th>객실 이름</th>
+            <th>상호명</th>
+            <th>가격</th>
+            <th>상태</th>
+            <th>등록일</th>
+            <th>리뷰작성</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="booking : ${bookings}">
+            <td th:text="${booking.bo_num}"></td>
+            <td th:text="${booking.checkin}"></td>
+            <td th:text="${booking.checkout}"></td>
+            <td th:text="${booking.name}"></td>
+            <td th:text="${booking.phoneNumber}"></td>
+            <td th:text="${booking.ro_name}"></td>
+            <td th:text="${booking.buTitle.buTitle}"></td>
+            <td th:text="${booking.price}"></td>
+            <td th:text="${booking.status}"></td>
+            <td th:text="${booking.reg_date}"></td>
+            <td>
+                <form th:action="@{/new-review}" method="get">
+                    <input type="hidden" name="bookingId" th:value="${booking.bo_num}"/>
+                    <button type="submit">리뷰작성</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<footer th:replace="fragments/common :: footers">
+</footer>
+</body>
+</html>

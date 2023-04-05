@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    font-size: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a img {
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+address,
+em,
+i {
+    font-style: normal;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.title {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.sub {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* .innerHeader */
+body {
+    width: 400px; height: 500px;
+    font-family: 'Noto Sans KR', 'Poppins';
+}
+
+.hotel_info_div {
+    width: 90%;
+    margin-left: 5%;
+    margin-top:5px;
+    display: inline-block;
+}
+
+
+.hotel_image {
+    clear: both;
+    width: 90%;
+    height: 250px;
+    margin-left:2px;
+
+}
+.roomimg{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+.room-name{
+    margin: 2px 0px;
+    width: 90%;
+    height: 40px;
+    border-bottom: solid 2px gray;
+    border-top: solid 2px gray;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    line-height: 40px;
+
+
+}
+.infotable{
+    width: 90%;
+    height: 200px;
+    text-align: center;
+    font-size: 15px;
+    border: solid 1px gray;
+
+}
+.tbname{
+    font-weight: border;
+    font-size: 15px;
+    color: grey;
+
+}
+.td1{
+    font-weight: border;
+    font-size: 15px;
+}
+.td2{
+    font-weight: lighter;
+    font-size: 15px;
+    color: grey;
+}
+.correct{
+    margin: 5px 0px;
+    width: 90%;
+    height:30px;
+    background-color: #1a8bff;
+    border-radius: 1px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px;
+    color: white;
+    border-radius: 12px;
+}
+.remove{
+    margin: 5px 0px;
+    width: 90%;
+    height:30px;
+    background-color: #1a8bff;
+    border-radius: 1px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px;
+    color: white;
+    border-radius: 12px;
+}

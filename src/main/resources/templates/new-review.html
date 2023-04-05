@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>후기 작성</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/review-point.css" />
+  <style>
+  </style>
+</head>
+<body>
+  <div class="rv-star">
+    <div class="room-text">
+      <h1 class="hotel-name">숙소 이름</h1>
+      <h2 class="room-name">객실 이름</h2>
+    </div>
+    <form name="myform" id="myform" method="post" th:action="@{'/new-review'}"
+          th:object="${reviewForm}" novalidate>
+      <div class="star-form" th:field="${reviewForm.score}">
+        <fieldset>
+          <input type="radio" name="score" value=5 id="rate1"><label for="rate1">★</label>
+          <input type="radio" name="score" value=4 id="rate2"><label for="rate2">★</label>
+          <input type="radio" name="score" value=3 id="rate3"><label for="rate3">★</label>
+          <input type="radio" name="score" value=2 id="rate4"><label for="rate4">★</label>
+          <input type="radio" name="score" value=1 id="rate5"><label for="rate5">★</label>
+        </fieldset>
+      </div>
+      <div class="textbox">
+        <textarea id="review-write" type="text" placeholder="리뷰를 입력해주세요" th:field="${reviewForm.reviewContent}" required></textarea>
+      </div>
+      <div>
+        <button class="rv-sub" type="submit" style="cursor:pointer" th:field="${review_date}">제출</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+

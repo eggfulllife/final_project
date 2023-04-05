@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modify room</title>
+  <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/businessstyle.css"/>
+  <link rel="stylesheet" href="/css/new-room.css"/>
+  <style>
+  </style>
+</head>
+<body>
+<div th:replace="fragments/businessnav :: businessnav"></div>
+  <div class="modify-room">
+    <h2>객실정보수정</h2>
+    <form class="nr-form" th:action="@{'/modify-room/' + ${room.roomId}}"
+          th:object="${room}" method="post" novalidate>
+      <div class="form-group">
+        <label for="room-title">객실 이름</label><br>
+        <input id="room-title" type="text" th:field="${room.roomTitle}" required><br>
+        <small class="check-room-title" th:if="${#fields.hasErrors('roomTitle')}"
+               th:errors="*{room.roomTitle}">이미 사용중인 객실 이름입니다. 객실 이름을 바꿔주세요.</small>
+      </div><br>
+      <div class="form-group">
+        <label for="room-price">가격</label><br>
+        <input id="room-price" type="number" th:field="${room.roomPrice}" placeholder="숫자만 입력하세요" required>
+      </div><br>
+      <div class="check-time">
+        <div class="form-group check-in-box">
+          <label for="check-in">체크인 시간</label><br>
+          <input id="check-in" type="time" th:name="checkIn" th:value="${room.checkIn}" required>
+        </div>
+        <div class="form-group check-out-box">
+          <label for="check-out">체크아웃 시간</label><br>
+          <input id="check-out" type="time" th:name="checkOut" th:value="${room.checkOut}" required>
+        </div>
+      </div>
+      <br>
+      <div class="form-group guest-box">
+        <label for="guest">객실 이용 인원</label>
+        <select id="guest" name="guest" type="select" required>
+          <option th:selected="${room.guest}=='1'">1</option>
+          <option th:selected="${room.guest}=='2'">2</option>
+          <option th:selected="${room.guest}=='3'">3</option>
+          <option th:selected="${room.guest}=='4'">4</option>
+          <option th:selected="${room.guest}=='5'">5</option>
+          <option th:selected="${room.guest}=='6'">6</option>
+          <option th:selected="${room.guest}=='7'">7</option>
+          <option th:selected="${room.guest}=='8'">8</option>
+        </select>
+      </div><br>
+      <div class="form-group">
+        <label for="room-info" th:field>객실 기본 정보 </label>
+        <span id="now-byte">0</span> / 4000bytes
+        <textarea id="room-info" type="text" onkeyup="javascript:fCheckByte(this,'4000')"
+                  th:field="${room.roomInfo}" required></textarea>
+      </div><br>
+      <div class="form-group">
+        <label for="room-photo">객실 사진 등록</label><br>
+        <textarea id="room-photo" type="text" th:field="${room.roomPhoto}" required></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" style="cursor:pointer">수정</button>
+      </div>
+    </form>
+  </div>
+
+  <footer th:replace="fragments/common :: footers"></footer>
+  <script th:replace="fragments.html :: form-check-byte"></script>
+
+</body>
+</html>

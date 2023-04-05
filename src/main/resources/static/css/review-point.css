@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+html{
+  width: 400px; height: 500px;
+}
+body {
+  font-family: 'Noto Sans KR', 'Poppins';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-size: inherit;
+}
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a img {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+address,
+em,
+i {
+  font-style: normal;
+}
+
+
+
+.rv-star{ text-align: center; }
+
+.hotel-name { padding-top: 10px;}
+/*.room-name { padding-bottom: 5px;}*/
+
+#myform fieldset{
+  display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+  border: 0; /* 필드셋 테두리 제거 */
+  direction: rtl; /* 이모지 순서 반전 */
+}
+#myform input[type=radio]{
+  display: none; /* 라디오박스 감춤 */
+}
+#myform input[type=radio]:checked ~ label{
+  text-shadow: 0 0 0 #1a8bff; /* 마우스 클릭 체크 */
+}
+#myform label {
+  color:transparent;  /* 기존 이모지 컬러 제거 */
+  text-shadow: 0 0 0 gainsboro; /* 새 이모지 색상 부여 */
+  font-size: 50px;
+}
+#myform label:hover{
+  text-shadow: 0 0 0 #1a8bff; /* 마우스 호버 */
+}
+#myform label:hover ~ label{
+  text-shadow: 0 0 0 #1a8bff; /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+.textbox { padding-top: 10px;}
+textarea {
+  width: 90%;
+  height: 250px;
+  padding: 2%;
+}
+
+.rv-sub {
+  width: 90%; height: 50px;
+  margin: 5px auto;
+  font-size: 15px;
+  background-color: #1a8bff;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.rv-sub:hover {
+  background-color: #0a3a69;
+} 
